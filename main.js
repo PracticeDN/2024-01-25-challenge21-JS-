@@ -6,6 +6,7 @@ const input = document.querySelector("input");
 const select = document.querySelector("select");
 const moreDogsButton = document.querySelector(".more-button");
 const topButton = document.querySelector(".top-button");
+const resetButton = document.querySelector(".reset-button");
 
 let dogsImgUrls = [];
 
@@ -120,6 +121,14 @@ topButton.addEventListener("click", () => {
     top: 0,
     behavior: "smooth",
   });
+});
+
+// Reset 버튼 클릭 시 새로운 강아지 42마리 다시 fetch
+resetButton.addEventListener("click", () => {
+  dogsImgUrls = [];
+  localStorage.removeItem("dogsImgUrls");
+
+  getRandomDogs();
 });
 
 addEventListener("DOMContentLoaded", () => {
