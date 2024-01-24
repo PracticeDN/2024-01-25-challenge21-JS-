@@ -1,0 +1,66 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  width: 60rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+
+  .inputs-container {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-around;
+
+    section {
+      button {
+        position: absolute;
+      }
+    }
+
+    select {
+      width: 8rem;
+    }
+  }
+
+  .dogs-container {
+    width: 100%;
+
+    img {
+      width: calc(100% / 3);
+      height: 20rem;
+    }
+  }
+
+  @mixin button {
+    position: fixed;
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 50%;
+    border: none;
+    background-color: rgb(112, 82, 82);
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+  }
+
+  .more-button {
+    @include button();
+    bottom: 10rem;
+    left: 6vw;
+  }
+
+  .top-button {
+    @include button();
+    bottom: 10rem;
+    right: 6vw;
+  }
+}

@@ -1,0 +1,67 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  width: 60rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+.container .inputs-container {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+.container .inputs-container section button {
+  position: absolute;
+}
+.container .inputs-container select {
+  width: 8rem;
+}
+.container .dogs-container {
+  width: 100%;
+}
+.container .dogs-container img {
+  width: 33.3333333333%;
+  height: 20rem;
+}
+.container .more-button {
+  position: fixed;
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(112, 82, 82);
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  bottom: 10rem;
+  left: 6vw;
+}
+.container .top-button {
+  position: fixed;
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(112, 82, 82);
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  bottom: 10rem;
+  right: 6vw;
+}
+
+/*# sourceMappingURL=style.css.map */
