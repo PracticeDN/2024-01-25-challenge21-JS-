@@ -10,7 +10,6 @@ const resetButton = document.querySelector(".reset-button");
 
 let dogsImgUrls = [];
 
-// 로컬스토리지에서 데이터 로드
 function loadFromLocalStorage() {
   const storedDogs = localStorage.getItem("dogsImgUrls");
   if (storedDogs) {
@@ -18,12 +17,10 @@ function loadFromLocalStorage() {
   }
 }
 
-// 로컬스토리지에 데이터 저장
 function saveToLocalStorage() {
   localStorage.setItem("dogsImgUrls", JSON.stringify(dogsImgUrls));
 }
 
-// 강아지 데이터 fetch 함수
 async function fetchDogs(dogsNumber) {
   const response = await fetch(RANDOM_DOG_API_URL + dogsNumber, {
     method: "GET",
@@ -33,7 +30,6 @@ async function fetchDogs(dogsNumber) {
   return data.message;
 }
 
-// 견종 리스트 fetch 함수
 async function fetchDogsList() {
   const response = await fetch(DOGS_LIST_API_URL, {
     method: "GET",
@@ -43,7 +39,6 @@ async function fetchDogsList() {
   return data.message;
 }
 
-// 견종 리스트 option에 추가하는 함수
 async function setDogListToOptions() {
   const dogsList = await fetchDogsList();
   const keysOfDogsList = Object.keys(dogsList);
@@ -55,7 +50,6 @@ async function setDogListToOptions() {
   });
 }
 
-// 강아지 화면에 렌더링하는 공통 함수
 function renderDogs(dogsImgUrls) {
   dogsContainer.innerHTML = "";
 
@@ -73,7 +67,6 @@ function renderDogs(dogsImgUrls) {
   });
 }
 
-// 강아지 가져오는 함수
 async function getRandomDogs() {
   if (dogsImgUrls.length === 0) {
     dogsImgUrls = await fetchDogs("42");
@@ -83,7 +76,6 @@ async function getRandomDogs() {
   renderDogs(dogsImgUrls);
 }
 
-// 강아지 필터링
 filterButton.addEventListener("click", () => {
   const value = input.value;
 
@@ -94,7 +86,6 @@ filterButton.addEventListener("click", () => {
   renderDogs(filteredDogs);
 });
 
-// 강아지 필터링 (select 태그로 인한 필터링)
 select.addEventListener("change", (event) => {
   const selectedValue = event.target.value;
 
@@ -105,7 +96,6 @@ select.addEventListener("change", (event) => {
   renderDogs(filteredDogs);
 });
 
-// 강아지 더 가져오기
 moreDogsButton.addEventListener("click", async () => {
   const newDogsImgUrls = await fetchDogs("42");
   dogsImgUrls = dogsImgUrls.concat(newDogsImgUrls);
@@ -115,7 +105,6 @@ moreDogsButton.addEventListener("click", async () => {
   renderDogs(dogsImgUrls);
 });
 
-// 페이지 상단으로 이동
 topButton.addEventListener("click", () => {
   window.scrollTo({
     top: 0,
@@ -123,7 +112,6 @@ topButton.addEventListener("click", () => {
   });
 });
 
-// Reset 버튼 클릭 시 새로운 강아지 42마리 다시 fetch
 resetButton.addEventListener("click", () => {
   dogsImgUrls = [];
   localStorage.removeItem("dogsImgUrls");
